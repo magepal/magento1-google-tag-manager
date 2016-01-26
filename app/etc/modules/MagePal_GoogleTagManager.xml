@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <MagePal_GoogleTagManager>
+      <active>true</active>
+      <codePool>local</codePool>
+    </MagePal_GoogleTagManager>
+  </modules>
+</config>

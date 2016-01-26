@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * DataLayer
+ * Copyright © 2016 MagePal. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<layout version="0.1.0">
+
+<!--
+Default layout, loads most of the pages
+-->
+
+    <default>
+        <reference name="after_body_start">
+            <block type="googletagmanager/tm" name="magepal_gtm_datalayer" as="magepal_gtm_datalayer" template="magepal/googletagmanager/data_layer.phtml" />
+            <block type="googletagmanager/gtmCode" name="gtm_code" as="gtm_code" template="magepal/googletagmanager/gtm_code.phtml" />
+        </reference>
+    </default>
+</layout>

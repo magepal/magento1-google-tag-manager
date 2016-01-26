@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * DataLayer
+ * Copyright © 2016 MagePal. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config>
+    <modules>
+        <MagePal_GoogleTagManager>
+            <version>1.0.1</version>
+        </MagePal_GoogleTagManager>
+    </modules>
+    <global>
+        <models>
+            <googletagmanager>
+                <class>MagePal_GoogleTagManager_Model</class>
+            </googletagmanager>
+        </models>
+        <blocks>
+            <googletagmanager>
+                <class>MagePal_GoogleTagManager_Block</class>
+            </googletagmanager>
+        </blocks>
+        <helpers>
+            <googletagmanager>
+                <class>MagePal_GoogleTagManager_Helper</class>
+            </googletagmanager>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <MagePal_GoogleTagManager>
+                    <files>
+                        <default>MagePal_GoogleTagManager.csv</default>
+                    </files>
+                </MagePal_GoogleTagManager>
+            </modules>
+        </translate>
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <googletagmanager_order_success>
+                        <class>googletagmanager/observer</class>
+                        <method>setGoogleTagManagerOnOrderSuccessPageView</method>
+                    </googletagmanager_order_success>
+                </observers>
+            </checkout_onepage_controller_success_action>
+            <checkout_multishipping_controller_success_action>
+                <observers>
+                    <googletagmanager_order_success>
+                        <class>googletagmanager/observer</class>
+                        <method>setgoogletagmanagerOnOrderSuccessPageView</method>
+                    </googletagmanager_order_success>
+                </observers>
+            </checkout_multishipping_controller_success_action>
+        </events>
+        <layout>
+            <updates>
+                <googletagmanager>
+                    <file>magepal_googletagmanager.xml</file>
+                </googletagmanager>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <magepal_googletagmanager>
+                    <files>
+                        <default>magepal_googletagmanager.csv</default>
+                    </files>
+                </magepal_googletagmanager>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>

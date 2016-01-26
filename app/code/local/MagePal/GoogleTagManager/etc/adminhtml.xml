@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * DataLayer
+ * Copyright © 2016 MagePal. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <googletagmanager translate="title" module="googletagmanager">
+                                        <title>Google Tag Manager</title>
+                                    </googletagmanager>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

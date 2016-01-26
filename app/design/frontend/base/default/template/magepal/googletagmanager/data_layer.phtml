@@ -1,0 +1,15 @@
+<?php
+/**
+ * MagePal Google Tag Manager for Magento 1
+ *
+ * Copyright © 2016 MagePal. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+<?php /** @var $this MagePal_GoogleTagManager_Block_Tm **/ ?>
+<?php echo $this->getGtmTrackingCode(); ?>
+<?php echo $this->getOrdersTrackingCode(); ?>
+</script>
