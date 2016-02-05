@@ -7,18 +7,6 @@ Add tag via XML layout
 Add tag via event/observer
 Data layer support
 
-#### Installation
-1. Install Google Tag Manager
- * Download the extension
- * Unzip the file
- * Create a folder {Magento root}/app/code/MagePal/GoogleTagManager
- * Copy the content from the unzip folder
-
- * php -f bin/magento module:enable --clear-static-content MagePal_GoogleTagManager
- * php -f bin/magento setup:upgrade
-
-2. Log into your Magetno Admin, then goto Store -> System -> MagePal -> Google Tag Manager and enter your GTM account credentials
-
 ###Data layer attributes
 ---------
 * pageType (i.e catalog_category_view)
