@@ -1,6 +1,6 @@
 {
     "name": "magepal/magento1-googletagmanager",
-    "description":"Google Tag Manager (GTM) for Magento 2 with Advance Data Layer",
+    "description":"Google Tag Manager (GTM) for Magento with Advanced Data Layer",
     "keywords": [
         "magento",
         "gtm",
