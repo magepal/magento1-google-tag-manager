@@ -1,5 +1,0 @@
-# Modman file
-app/code/local/MagePal/GoogleTagManager                                 app/code/local/MagePal/GoogleTagManager
-app/design/frontend/base/default/layout/magepal_googletagmanager.xml    app/design/frontend/base/default/layout/magepal_googletagmanager.xml
-app/design/frontend/base/default/template/magepal/googletagmanager      app/design/frontend/base/default/template/magepal/googletagmanager
-app/etc/modules/MagePal_GoogleTagManager.xml                            app/etc/modules/MagePal_GoogleTagManager.xml
