@@ -5,8 +5,8 @@
  * See COPYING.txt for license details.
  */
 class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
-{  
-    
+{
+
     /**
      * Google Tag Manager Helper
      *
@@ -27,39 +27,39 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
      * @var MagePal_TagManager_Model_DataLayer
      */
     protected $_dataLayerModel = null;
-    
-    
+
+
     protected $_customVariables = array();
-    
+
     protected $_orderCollection = null;
 
 
     public function __construct() {
-        
+
         $this->_cookieHelper = Mage::helper('core/cookie');
         $this->_gtmHelper = Mage::helper('googletagmanager');
         $this->_dataLayerModel = Mage::getModel('googletagmanager/dataLayer');
 
         $this->addVariable('ecommerce', array('currencyCode' => Mage::app()->getStore()->getCurrentCurrencyCode()));
     }
-    
+
     /**
      * Render information about specified orders and their items
-     * 
+     *
      * @return void|string
      */
     protected function getOrdersTrackingCode()
     {
         $collection = $this->getOrderCollection();
-        
+
         if(!$collection){
             return;
         }
-        
+
         $result = array();
-        
+
         foreach ($collection as $order) {
-                        
+
             foreach ($order->getAllVisibleItems() as $item) {
                 $product[] = array(
                     'sku' => $item->getSku(),
@@ -68,19 +68,20 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
                     'quantity' => $item->getQtyOrdered()
                 );
             }
-            
+
             $transaction = array(
                 'transactionId' => $order->getIncrementId(),
                 'transactionAffiliation' => Mage::app()->getStore()->getFrontendName(),
                 'transactionTotal' => $order->getBaseGrandTotal(),
                 'transactionShipping' => $order->getBaseShippingAmount(),
+                'discountCode' = $order->getCouponCode(),
                 'transactionProducts' => $product
             );
-            
-            
+
+
             $result[] = sprintf("dataLayer.push(%s);", json_encode($transaction));
         }
-        
+
         return implode("\n", $result) . "\n";
     }
 
@@ -103,32 +104,32 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
      * @return json
      */
     public function getGtmTrackingCode() {
-        
+
         Mage::dispatchEvent('magepal_data_layer', array('data_layer' => $this));
 
         $result = array();
         $result[] = sprintf("dataLayer.push(%s);\n", json_encode($this->_dataLayerModel->getVariables()));
-        
+
         if(!empty($this->_customVariables) && is_array($this->_customVariables)){
-           
+
             foreach($this->_customVariables as $custom){
                 $result[] = sprintf("dataLayer.push(%s);\n", json_encode($custom));
             }
         }
-        
+
         return implode("\n", $result) . "\n";
     }
-    
+
     public function getQuote(){
         return $this->_dataLayerModel->getQuote();
     }
 
     public function addVariable($name, $value) {
         $this->_dataLayerModel->addVariable($name, $value);
-        
+
         return $this;
     }
-    
+
     public function addCustomVariable($name, $value = null) {
        if(is_array($name)){
           $this->_customVariables[] = $name;
@@ -136,14 +137,14 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
        else{
            $this->_customVariables[] = array($name => $value);
        }
-        
+
         return $this;
     }
-    
+
     public function formatPrice($price){
         return $this->_dataLayerModel->formatPrice($price);
     }
-    
+
     public function getOrderCollection(){
         $orderIds = $this->getOrderIds();
         if (empty($orderIds) || !is_array($orderIds)) {
@@ -155,8 +156,8 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
                 ->addFieldToFilter('entity_id', array('in' => $orderIds))
             ;
         }
-        
+
         return $this->_orderCollection;
     }
-    
+
 }
