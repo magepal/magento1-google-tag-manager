@@ -74,7 +74,7 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
                 'transactionAffiliation' => Mage::app()->getStore()->getFrontendName(),
                 'transactionTotal' => $order->getBaseGrandTotal(),
                 'transactionShipping' => $order->getBaseShippingAmount(),
-                'discountCode' = $order->getCouponCode(),
+                'discountCode' => $order->getCouponCode(),
                 'transactionProducts' => $product
             );
 
