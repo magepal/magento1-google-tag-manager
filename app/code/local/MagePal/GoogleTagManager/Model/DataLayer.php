@@ -148,8 +148,10 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
         $quote = $this->getQuote();
         $cart = array();
 
+        $cart['hasItems'] = false;
+        
         if ($quote->getItemsCount()) {
-            $cart['hasItems'] = true;
+            $items = [];
             
             // set items
             foreach($quote->getAllVisibleItems() as $item){
@@ -161,7 +163,10 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
                 );
             }
             
-            $cart['items'] = $items;
+            if(count($items) > 0){
+                $cart['hasItems'] = true;
+                $cart['items'] = $items; 
+            }
             $cart['total'] = $this->formatPrice($quote->getGrandTotal());
             $cart['itemCount'] = $quote->getItemsCount();
             
@@ -175,10 +180,8 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
                 $cart['couponCode'] = $coupon;
             }
         }
-        else{
-           $cart['hasItems'] = false;
-        }
-         $this->addVariable('cart', $cart);
+        
+        $this->addVariable('cart', $cart);
         
         return $this;
     }
