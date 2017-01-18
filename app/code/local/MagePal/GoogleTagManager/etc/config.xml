@@ -9,7 +9,7 @@
 <config>
     <modules>
         <MagePal_GoogleTagManager>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </MagePal_GoogleTagManager>
     </modules>
     <global>
