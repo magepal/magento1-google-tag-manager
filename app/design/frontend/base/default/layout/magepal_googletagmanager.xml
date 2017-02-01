@@ -13,8 +13,8 @@ Default layout, loads most of the pages
 -->
 
     <default>
-        <reference name="header">
-            <block type="googletagmanager/gtmHeadCode" name="gtm_head_code" as="gtm_head_code" template="magepal/googletagmanager/gtm_head_code.phtml" output="toHtml"/>
+        <reference name="head">
+            <block type="googletagmanager/gtmCode" name="gtm_head_code" as="gtm_head_code" template="magepal/googletagmanager/gtm_head_code.phtml" output="toHtml"/>
         </reference>
         <reference name="after_body_start">
             <block type="googletagmanager/tm" name="magepal_gtm_datalayer" as="magepal_gtm_datalayer" template="magepal/googletagmanager/data_layer.phtml" />
