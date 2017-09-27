@@ -152,11 +152,8 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
             return;
         }
 
-        if(!$this->_orderCollection){
-            $this->_orderCollection = Mage::getResourceModel('sales/order_collection')
-                ->addFieldToFilter('entity_id', array('in' => $orderIds))
-            ;
-        }
+        $this->_orderCollection = Mage::getResourceModel('sales/order_collection')
+                ->addFieldToFilter('entity_id', array('in' => $orderIds));
 
         return $this->_orderCollection;
     }
