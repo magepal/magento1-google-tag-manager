@@ -151,7 +151,7 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
         $cart['hasItems'] = false;
         
         if ($quote->getItemsCount()) {
-            $items = [];
+            $items = array();
             
             // set items
             foreach($quote->getAllVisibleItems() as $item){
