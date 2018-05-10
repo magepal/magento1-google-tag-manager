@@ -124,8 +124,10 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
         $customer = array();
         if ($this->_customerSession->isLoggedIn()) {
             $customer['isLoggedIn'] = true;
-            $customer['id'] = $this->_customerSession->getCustomerId();
-            $customer['groupId'] = $this->_customerSession->getCustomerGroupId();
+            if ($this->_gtmHelper->sendPersonal()) {
+                $customer['id'] = $this->_customerSession->getCustomerId();
+                $customer['groupId'] = $this->_customerSession->getCustomerGroupId();
+            }
             //$customer['groupCode'] = ;
         } else {
             $customer['isLoggedIn'] = false;

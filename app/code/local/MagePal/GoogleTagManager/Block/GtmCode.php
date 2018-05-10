@@ -47,7 +47,7 @@ class MagePal_GoogleTagManager_Block_GtmCode extends Mage_Core_Block_Template
      * @return string
      */
     public function getCustomCode() {
-        return $this->_gtmHelper->getCustomCode();
+        return $this->_gtmHelper->getAccountId();
     }
 
     /**

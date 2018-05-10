@@ -51,12 +51,22 @@
                         <custom translate="label">
                             <label>Add custom JS to script tag</label>
                             <frontend_type>textarea</frontend_type>
-                            <sort_order>10</sort_order>
+                            <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-							<comment><![CDATA[For example load custom dataLayer variables or events like window.dataLayer.push({'event': 'my_cool_event'});.]]></comment>
-                        </custom>  
+                            <comment><![CDATA[For example load custom dataLayer variables or events like window.dataLayer.push({'event': 'my_cool_event'});.]]></comment>
+                        </custom>
+                        <nopersonal translate="label">
+                            <label>Submit personal data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Show personal data like customer id and logged in data according to GDPR? Selecting No does not submit personal data.]]></comment>
+                        </nopersonal>
                     </fields>
                 </general>
             </groups>
