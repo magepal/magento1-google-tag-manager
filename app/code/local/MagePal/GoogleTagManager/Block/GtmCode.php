@@ -42,6 +42,24 @@ class MagePal_GoogleTagManager_Block_GtmCode extends Mage_Core_Block_Template
     }
 
     /**
+     * Get Custom Code
+     *
+     * @return string
+     */
+    public function getCustomCode() {
+        return $this->_gtmHelper->getCustomCode();
+    }
+
+    /**
+     * Allow to send personal?
+     *
+     * @return string
+     */
+    public function sendPersonal() {
+        return $this->_gtmHelper->sendPersonal();
+    }
+
+    /**
      * Render tag manager JS
      *
      * @return string

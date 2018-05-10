@@ -11,7 +11,8 @@ class MagePal_GoogleTagManager_Helper_Data extends Mage_Core_Helper_Abstract
      */
     const XML_PATH_ACTIVE        = 'googletagmanager/general/active';
     const XML_PATH_ACCOUNT       = 'googletagmanager/general/account';
-
+    const XML_PATH_CUSTOMCODE    = 'googletagmanager/general/custom';
+    const XML_PATH_NOPERSONAL    = 'googletagmanager/general/nopersonal';
 
     /**
      * Whether GTM is ready to use
@@ -26,6 +27,17 @@ class MagePal_GoogleTagManager_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Check whether we can send personal data (GDPR)
+     *
+     * @param mixed $store
+     * @return bool
+     */
+    public function sendPersonal($store = null)
+    {
+        return Mage::getStoreConfigFlag(self::XML_PATH_NOPERSONAL, $store);
+    }
+
+    /**
      * Get GTM account id
      *
      * @param string $store
@@ -36,5 +48,15 @@ class MagePal_GoogleTagManager_Helper_Data extends Mage_Core_Helper_Abstract
         return Mage::getStoreConfig(self::XML_PATH_ACCOUNT, $store);
     }
 
+    /**
+     * Get custom JS code
+     *
+     * @param string $store
+     * @return string
+     */
+    public function getCustomCode($store = null)
+    {
+        return Mage::getStoreConfig(self::XML_PATH_CUSTOMCODE, $store);
+    }
 
 }

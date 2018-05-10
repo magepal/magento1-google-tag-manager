@@ -17,3 +17,16 @@
     })(window,document,'script','dataLayer','<?php echo $accountId ?>');</script>
 <!-- End Google Tag Manager by MagePal (head) -->
 
+<?php $customCode = $this->getCustomCode(); ?>
+
+<?php if (strlen($customCode) > 0): ?>
+
+<!-- Google Tag Manager Custom Code -->
+    <script>
+    
+    <?php echo $customCode; ?>
+    
+    </script>
+<!-- End Google Tag Manager Custom Code -->
+
+<?php endif; ?>
