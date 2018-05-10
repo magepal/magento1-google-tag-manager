@@ -39,7 +39,7 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
         $this->_gtmHelper = Mage::helper('googletagmanager');
         $this->_dataLayerModel = Mage::getModel('googletagmanager/dataLayer');
 
-        $this->addVariable('currency', array('currencyCode' => Mage::app()->getStore()->getCurrentCurrencyCode()));
+        $this->addVariable('ecommerce', array('currencyCode' => Mage::app()->getStore()->getCurrentCurrencyCode()));
 
         $this->addVariable('page_handle', $this->fullActionName);
         $this->addVariable('route', 'other');

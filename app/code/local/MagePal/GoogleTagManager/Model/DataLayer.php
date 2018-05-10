@@ -175,7 +175,7 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
                 $items[] = array(
                     'sku' => $item->getSku(),
                     'name' => $item->getName(),
-                    'price' => $this->formatPrice($item->getPrice()),
+                    'price' => $this->formatPrice($item->getRowTotalInclTax()),
                     'quantity' => $item->getQty()
                 );
             }
