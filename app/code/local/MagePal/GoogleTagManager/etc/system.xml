@@ -48,6 +48,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </account>
+                        <custom translate="label">
+                            <label>Add custom JS to script tag</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[For example load custom dataLayer variables or events like window.dataLayer.push({'event': 'my_cool_event'});.]]></comment>
+                        </custom>  
                     </fields>
                 </general>
             </groups>

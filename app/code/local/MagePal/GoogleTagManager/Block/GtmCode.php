@@ -42,6 +42,15 @@ class MagePal_GoogleTagManager_Block_GtmCode extends Mage_Core_Block_Template
     }
 
     /**
+     * Get Custom Code
+     *
+     * @return string
+     */
+    public function getCustomCode() {
+        return $this->_gtmHelper->getCustomCode();
+    }
+
+    /**
      * Render tag manager JS
      *
      * @return string
