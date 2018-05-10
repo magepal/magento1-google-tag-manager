@@ -53,6 +53,19 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
             $this->addVariable('route', 'cms_page');
         }
 
+        $domain = Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB); // Maybe add $_SERVER['HTTP_HOST'];
+        $this->addVariable('domain', $domain);
+
+        $domain = 'unknown'; // Maybe add $_SERVER['HTTP_HOST'];
+        if ($_SERVER['HTTP_HOST']) {
+            $domain = $_SERVER['HTTP_HOST'];
+        } else if (Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB)) {
+            $domain = Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB);
+        }
+        $domain = preg_replace("(^https?://)", "", $domain);
+        $domain = preg_replace("(\/)", "", $domain);
+        $this->addVariable('domain', $domain);
+
         $this->setCustomerDataLayer();
         $this->setProductDataLayer();
         $this->setCategoryDataLayer();
