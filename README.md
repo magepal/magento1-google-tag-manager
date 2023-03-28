@@ -2,7 +2,7 @@
 
 # Google Tag Manager for Magento 1.x / OpenMage LTS with Data Layer
 
-Looking to add Google Analytics 4 to your Magento 1 / OpenMage LTS store? Contact ga4@MagePal.com for more information on our cutting-edge GA4 extension for Magento 1.
+Looking to add Google Analytics 4 to your Magento 1 / OpenMage LTS store? <a href="https://www.magepal.com/magento1/google-tag-manager-1.html">Google Analytics 4</a> is our cutting-edge Google Tag Manager extension for Magento 1.
 
 Google Tag Manager for Magento 1 (OpenMage LTS) is a powerful extension that allows you to easily manage and deploy marketing and analytics tags on your Magento 1 website. With this extension, you can easily add, edit, and manage your Google Analytics, Google AdWords, TikTok, Bing, Facebook Tags and other marketing and analytics tags without the need for developer assistance. The extension also includes a user-friendly interface that makes it easy to set up and manage your tags. Additionally, it provides the option to use GTM and GA together, this allows you to have full control over your GA tags and triggers, and you can access all the data in GA. This extension is a must-have for any Magento 1 store owner looking to improve their website's tracking and analytics capabilities.
 
