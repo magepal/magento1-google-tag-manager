@@ -1,8 +1,10 @@
-<a href="http://www.magepal.com" title="MagePal - Magento 2 Extension Marketplace" ><img src="https://image.ibb.co/dHBkYH/Magepal_logo.png" alt="Magento 2 Extension Marketplace" width="100" align="right" /></a>
+<a href="https://www.magepal.com/magento1/google-tag-manager-1.html" title="MagePal - Magento 2 Extension Marketplace" ><img src="https://image.ibb.co/dHBkYH/Magepal_logo.png" alt="Magento 2 Extension Marketplace" width="100" align="right" /></a>
 
 # Google Tag Manager for Magento 1.x / OpenMage LTS with Data Layer
 
-Looking to add Google Analytics 4 to your Magento 1 / OpenMage LTS store? <a href="https://www.magepal.com/magento1/google-tag-manager-1.html">Google Analytics 4</a> is our cutting-edge Google Tag Manager extension for Magento 1.
+#### Looking to add Google Analytics 4 to your Magento 1 / OpenMage LTS store? 
+Unlock the power of Google Analytics 4 on your Magento 1 / OpenMage LTS store with our revolutionary new Google Tag Manager extension. Take your e-commerce game to the next level and gain unprecedented insights into your customers' behavior with the most advanced analytics platform available. Upgrade now and get started on your journey towards data-driven success. Learn more about our <a href="https://www.magepal.com/magento1/google-tag-manager-1.html">Google Analytics 4</a> extension today!
+
 
 Google Tag Manager for Magento 1 (OpenMage LTS) is a powerful extension that allows you to easily manage and deploy marketing and analytics tags on your Magento 1 website. With this extension, you can easily add, edit, and manage your Google Analytics, Google AdWords, TikTok, Bing, Facebook Tags and other marketing and analytics tags without the need for developer assistance. The extension also includes a user-friendly interface that makes it easy to set up and manage your tags. Additionally, it provides the option to use GTM and GA together, this allows you to have full control over your GA tags and triggers, and you can access all the data in GA. This extension is a must-have for any Magento 1 store owner looking to improve their website's tracking and analytics capabilities.
 
