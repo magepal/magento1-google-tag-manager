@@ -28,7 +28,6 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
      */
     protected $_dataLayerModel = null;
 
-
     protected $_customVariables = array();
 
     protected $_orderCollection = null;
@@ -41,6 +40,14 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
         $this->_dataLayerModel = Mage::getModel('googletagmanager/dataLayer');
 
         $this->addVariable('ecommerce', array('currencyCode' => Mage::app()->getStore()->getCurrentCurrencyCode()));
+
+        $this->addVariable('page_handle', $this->fullActionName);
+        $this->addVariable('route', 'other');
+
+        if($this->fullActionName === 'checkout_onepage_success'){
+            $this->addVariable('route', 'checkout_success');
+        }
+
     }
 
     /**

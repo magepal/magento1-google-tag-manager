@@ -42,9 +42,27 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
         
         $this->fullActionName = Mage::app()->getFrontController()->getAction() ? Mage::app()->getFrontController()->getAction()->getFullActionName() : 'Unknown';;
         
-        $this->addVariable('pageType', $this->fullActionName);
-        $this->addVariable('list', 'other');
-      
+        $this->addVariable('page_handle', $this->fullActionName);
+        $this->addVariable('route', 'other');
+
+        if($this->fullActionName === 'cms_index_index'){
+            $this->addVariable('route', 'home_page');
+        }
+
+        if($this->fullActionName === 'cms_page_view'){
+            $this->addVariable('route', 'cms_page');
+        }
+
+        $domain = 'unknown'; // Maybe add $_SERVER['HTTP_HOST'];
+        if ($_SERVER['HTTP_HOST']) {
+            $domain = $_SERVER['HTTP_HOST'];
+        } else if (Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB)) {
+            $domain = Mage::getBaseUrl (Mage_Core_Model_Store::URL_TYPE_WEB);
+        }
+        $domain = preg_replace("(^https?://)", "", $domain);
+        $domain = preg_replace("(\/)", "", $domain);
+        $this->addVariable('domain', $domain);
+
         $this->setCustomerDataLayer();
         $this->setProductDataLayer();
         $this->setCategoryDataLayer();
@@ -89,8 +107,7 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
                 $category['name'] = $_category->getName();
                 
                 $this->addVariable('category', $category);
-                
-                $this->addVariable('list', 'category');
+                $this->addVariable('route', 'category');
         }
 
         return $this;
@@ -104,13 +121,13 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
         if($this->fullActionName === 'catalog_product_view'
            && $_product = Mage::registry('current_product')
         ) {
-            $this->addVariable('list', 'detail');
+            $this->addVariable('route', 'product');
 
             $product = array();
             $product['id'] = $_product->getId();
             $product['sku'] = $_product->getSku();
             $product['name'] = $_product->getName();
-            // $this->addVariable('productPrice', $_product->getPrice());
+            $product['price'] = $_product->getPrice();
             $this->addVariable('product', $product);
         }
 
@@ -143,10 +160,18 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
      * Set cart Data Layer
      */
     protected function setCartDataLayer() {
-        if($this->fullActionName === 'checkout_index_index'){
-            $this->addVariable('list', 'cart');
+        if($this->fullActionName === 'checkout_index_index' || $this->fullActionName === 'checkout_cart_index'){
+            $this->addVariable('route', 'cart');
         }
-        
+
+        if($this->fullActionName === 'checkout_onepage_index'){
+            $this->addVariable('route', 'checkout');
+        }
+
+        if($this->fullActionName === 'checkout_onepage_success'){
+            $this->addVariable('route', 'checkout_success');
+        }
+
         $quote = $this->getQuote();
         $cart = array();
 
@@ -160,7 +185,7 @@ class MagePal_GoogleTagManager_Model_DataLayer extends Mage_Core_Model_Abstract 
                 $items[] = array(
                     'sku' => $item->getSku(),
                     'name' => $item->getName(),
-                    'price' => $this->formatPrice($item->getPrice()),
+                    'price' => $this->formatPrice($item->getRowTotalInclTax()),
                     'quantity' => $item->getQty()
                 );
             }
