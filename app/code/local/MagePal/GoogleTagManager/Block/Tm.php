@@ -81,7 +81,7 @@ class MagePal_GoogleTagManager_Block_Tm extends Mage_Core_Block_Template
             );
 
 
-            $result[] = sprintf("dataLayer.push(%s);", json_encode($transaction));
+            $result[] = sprintf("dataLayer.push(%s);", json_encode($transaction, JSON_NUMERIC_CHECK));
         }
 
         return implode("\n", $result) . "\n";
